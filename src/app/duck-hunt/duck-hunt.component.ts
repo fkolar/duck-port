@@ -1,6 +1,5 @@
 import {ChangeDetectorRef, Component, ElementRef, NgZone, OnInit} from '@angular/core';
-
-declare var Game: any;
+import * as dh from './duck-hunt';
 
 @Component({
   selector: 'app-duck-hunt',
