@@ -1,0 +1,20 @@
+{
+  "projects": {
+    "default": "scoreo-f7e41"
+  },
+  "targets": {
+    "scoreo-f7e41": {
+      "hosting": {
+        "app": [
+          "scoreo-f7e41"
+        ],
+        "admin": [
+          "score-admin-40ed3"
+        ],
+         "game": [
+           "game-remote-22fdd"
+         ]
+      }
+    }
+  }
+}

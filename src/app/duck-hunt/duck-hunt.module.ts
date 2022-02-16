@@ -25,3 +25,5 @@ const routes: Routes = [
 })
 export class DuckHuntModule {
 }
+
+export {DuckHuntComponent};

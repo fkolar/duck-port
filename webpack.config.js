@@ -10,7 +10,7 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    uniqueName: "duckhunt",
+    uniqueName: "duckPort",
     publicPath: "auto"
   },
   optimization: {
@@ -23,26 +23,22 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        name: "duckhunt",
-        filename: "remoteEntry.js",
-        exposes: {
-            './Module': './src/app/duck-hunt/duck-hunt.module.ts',
-        },
 
-        // For hosts (please adjust)
-        // remotes: {
-        //     "mfe1": "mfe1@http://localhost:3000/remoteEntry.js",
+      name: "DuckGameApp",
+      filename: "remoteEntry.js",
+      exposes: {
+        './Duck': './src/app/duck-hunt/duck-hunt.module.ts',
+      },
 
-        // },
 
-        shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "duck-hunt": { singleton: true, eager: true},
-          ...sharedMappings.getDescriptors()
-        })
+      shared: share({
+        "@angular/core": {singleton: true,  requiredVersion: ">=12.0.0"},
+        "@angular/common": {singleton: true, requiredVersion: ">=12.0.0"},
+        "@angular/common/http": {singleton: true, requiredVersion: ">=12.0.0"},
+        "@angular/router": {singleton: true, requiredVersion: ">=12.0.0"},
+        "duck-hunt": {},
+        ...sharedMappings.getDescriptors()
+      })
 
     }),
     sharedMappings.getPlugin()
